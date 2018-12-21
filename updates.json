@@ -1,0 +1,8 @@
+{
+	"name" : "Secretum Menus Shortcode",
+	"version" : "0.0.2",
+	"download_url" : "https://github.com/SecretumTheme/secretum-menus/archive/0.0.2.zip",
+	"sections" : {
+		"description" : "Secretum Menus Shortcode provides a customizable menu shortcode for all registered menus."
+	}
+}

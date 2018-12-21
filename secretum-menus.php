@@ -5,7 +5,7 @@ namespace SecretumMenus;
  * Plugin Name: Secretum Menus Shortcode
  * Plugin URI: https://github.com/SecretumTheme/secretum-menus
  * Description: Secretum Menus Shortcode allows developers to provide a customizable menu shortcode for all registered menus.
- * Version: 0.0.1
+ * Version: 0.0.2
  * License: GNU GPLv3
  * Copyright (c) 2018 Secretum Theme
  * Author: Secretum Theme
@@ -66,3 +66,13 @@ add_action('admin_init', function() {
 
 // Inject Links Into Plugin.php Admin
 add_filter('plugin_row_meta', '\SecretumMenus\Functions\links', 10, 2);
+
+// Secretum Updater Plugin
+if (file_exists(WP_PLUGIN_DIR . '/secretum-updater/puc/plugin-update-checker.php')) {
+    include_once(WP_PLUGIN_DIR . '/secretum-updater/puc/plugin-update-checker.php');
+    $secretum_hf_updater = \Puc_v4_Factory::buildUpdateChecker(
+        'https://raw.githubusercontent.com/SecretumTheme/secretum-menus/master/updates.json',
+        SECRETUM_MENUS_PLUGIN_FILE,
+        'secretum-menus'
+    );
+}
